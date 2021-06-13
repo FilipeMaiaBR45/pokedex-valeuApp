@@ -6,6 +6,13 @@ export const Header = styled.header`
   .logoPokemom {
     min-width: 250px;
   }
+
+  .searchIcon {
+    background-color: white;
+    width: 70px;
+    padding: 20px;
+    cursor: pointer;
+  }
 `;
 
 export const PokeballContent = styled.div`
@@ -30,7 +37,7 @@ export const PokeballContent = styled.div`
 
 export const Form = styled.form`
   input {
-    width: 46%;
+    width: 42%;
     font-size: 200%;
 
     border: none;
@@ -40,10 +47,10 @@ export const Form = styled.form`
       color: #293744;
     }
 
-    background: url(${search}) no-repeat scroll;
+    /* background: url(${search}) no-repeat scroll;
     background-position: 95% 50%;
     background-size: 30px;
-    background-color: white;
+    background-color: white; */
 
     @media (max-width: 576px) {
       width: 100%;

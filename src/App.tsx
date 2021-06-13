@@ -2,6 +2,7 @@ import React, { useState, FormEvent, useEffect } from "react";
 import logo from "./assets/img/logo.png";
 
 import pokeball from "./assets/img/pokeball.png";
+import search from "./assets/img/search.png";
 import PokemomCard from "./components/PokemomCard";
 
 import api from "./services/api";
@@ -56,6 +57,18 @@ function App() {
 
   async function handleFilterByNamePokemon(
     event: FormEvent<HTMLFormElement>
+  ): Promise<void> {
+    event.preventDefault();
+
+    const pokemonsFilters: Pokemon[] = pokemons.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(newPokemon.toLowerCase());
+    });
+
+    setPokemonsView(pokemonsFilters);
+  }
+
+  async function handleFilterByNamePokemonClick(
+    event: React.MouseEvent<HTMLElement>
   ): Promise<void> {
     event.preventDefault();
 
@@ -134,12 +147,21 @@ function App() {
               </Row>
               <Row className="text-center mt-5 mb-5">
                 <Col>
-                  <Form onSubmit={handleFilterByNamePokemon}>
+                  <Form
+                    onSubmit={handleFilterByNamePokemon}
+                    className="d-flex justify-content-center"
+                  >
                     <input
                       placeholder="Search a Pokemon"
                       value={newPokemon}
                       onChange={(e) => setNewPokemon(e.target.value)}
                       onKeyUp={handleIsEmpty}
+                    />
+                    <Image
+                      src={search}
+                      alt="search icon"
+                      className="searchIcon"
+                      onClick={handleFilterByNamePokemonClick}
                     />
                   </Form>
                 </Col>
