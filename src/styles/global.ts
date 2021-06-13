@@ -8,6 +8,10 @@ export default createGlobalStyle`
         outline: 0;
         box-sizing: border-border-box;
     }
+
+    html{
+      scroll-behavior: smooth;
+    }
     body {
         background: #293744;
        
