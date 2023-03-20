@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import logo from "./assets/img/logo.png";
 
 import pokeball from "./assets/img/pokeball.png";
@@ -26,6 +27,7 @@ interface Pokemon {
 }
 
 function App() {
+  const history = useHistory();
   const [newPokemon, setNewPokemon] = useState("");
   const [isLoading, setIsLoadind] = useState(false);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -76,6 +78,7 @@ function App() {
       return pokemon.name.toLowerCase().includes(newPokemon.toLowerCase());
     });
 
+    history.push("/#pokemonSection");
     setPokemonsView(pokemonsFilters);
   }
 
